@@ -1,19 +1,17 @@
 'use client'
 
 import Typography from '@mui/material/Typography'
-import { useTheme } from '@mui/material/styles'
 import { useTranslations } from 'next-intl'
 import { LinkProps } from '.'
 import { useEffect, useState } from 'react'
 
 const Link: FC<LinkProps & { name: string; scrollTo: number }> = ({ name, navOpen, scrollTo }) => {
-  const theme = useTheme()
   const t = useTranslations('Header')
   const [mainEl, setMainEl] = useState<HTMLElement | null>(null)
 
   useEffect(() => {
     if (document.getElementById('main')) setMainEl(document.getElementById('main'))
-  })
+  }, [])
 
   const scroll = () => {
     const start = mainEl!.scrollTop!

@@ -4,8 +4,11 @@ import { Button } from '@mui/material'
 import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
 import { styled, useTheme } from '@mui/material/styles'
-import Lottie, { LottieRefCurrentProps } from 'lottie-react'
+import type { LottieRefCurrentProps } from 'lottie-react'
+import dynamic from 'next/dynamic'
 import { useEffect, useRef } from 'react'
+
+const Lottie = dynamic(() => import('lottie-react'), { ssr: false })
 
 const Box = styled(Button)(({ theme }) => ({
   aspectRatio: '16 / 9',
@@ -46,7 +49,7 @@ const Thumbnail: FC<Props> = ({ anim, label, mobileOffset }) => {
 
     const handleScroll = () => {
       const rect = animContainer!.getBoundingClientRect()
-      const scrollY = mainRef.current?.scrollTop!
+      const scrollY = mainRef.current?.scrollTop || 0
       const frame = Math.round(Math.abs((scrollY / rect.top) * 120)) - (isMobile ? mobileOffset : 30)
       if (frame <= 120) lottieRef.current?.goToAndStop(frame, true)
     }
@@ -56,7 +59,7 @@ const Thumbnail: FC<Props> = ({ anim, label, mobileOffset }) => {
     return () => {
       mainRef.current?.removeEventListener('scroll', handleScroll)
     }
-  }, [])
+  })
 
   return (
     <Grid size={1} sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>

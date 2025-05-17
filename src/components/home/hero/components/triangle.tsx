@@ -2,7 +2,7 @@
 
 import { styled } from '@mui/material/styles'
 
-const Svg = styled('svg')(({ theme }) => ({
+const Svg = styled('svg')({
   position: 'absolute',
   bottom: 0,
   left: 0,
@@ -11,7 +11,7 @@ const Svg = styled('svg')(({ theme }) => ({
   '& *': {
     fill: '#252120'
   }
-}))
+})
 
 const Triangle = () => (
   <Svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1145 80">

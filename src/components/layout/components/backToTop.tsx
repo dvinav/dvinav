@@ -16,7 +16,7 @@ const BackToTop = () => {
     return () => {
       mainEl?.removeEventListener('scroll', handleScroll)
     }
-  })
+  }, [mainEl])
 
   const scrollToTop = () => {
     const start = mainEl!.scrollTop!
