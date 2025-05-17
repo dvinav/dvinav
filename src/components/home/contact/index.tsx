@@ -45,8 +45,8 @@ const Contact = () => {
           display: 'flex'
         }}
       >
-        {contactLinks.map(({ icon: Icon, link }) => (
-          <Btn>
+        {contactLinks.map(({ icon: Icon, link }, i) => (
+          <Btn key={i}>
             <Link href={link} target="_blank" rel="noopener noreferrer">
               <Icon />
             </Link>

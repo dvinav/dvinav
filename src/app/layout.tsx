@@ -3,8 +3,6 @@ import AppLayout from '@/components/layout'
 import { dirs } from '@/config/locale'
 import { getLocale } from 'next-intl/server'
 
-export const runtime = 'edge'
-
 export { default as generateMetadata } from '@/config/metadata'
 
 const RootLayout: LC = async ({ children }) => {
