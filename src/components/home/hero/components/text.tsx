@@ -30,7 +30,7 @@ const About: FC = () => {
         animation: `${appearAnimation} 250ms`
       }}
     >
-      <Typography fontSize={{ xs: '1.6rem', md: '2rem', xl: '3rem' }} fontWeight="500" color="text.primary">
+      <Typography component="h1" fontSize={{ xs: '1.6rem', md: '2rem', xl: '3rem' }} fontWeight="500" color="text.primary">
         {t('heading')}
       </Typography>
       <Typography fontSize={{ xs: '1.2rem', md: '1.7rem', xl: '2rem' }} textAlign="justify" mt={3} color="text.primary">

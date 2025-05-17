@@ -29,6 +29,7 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.1",
+    "@next/bundle-analyzer": "^15.3.2",
     "@types/bun": "^1.2.13",
     "@types/lodash": "^4.17.16",
     "@types/react": "^19.1.3",
