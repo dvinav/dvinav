@@ -34,6 +34,18 @@ const generateMetadata = async (): Promise<Metadata> => {
         en: `https://${process.env.DOMAIN}/en/`,
         fa: `https://${process.env.DOMAIN}/fa/`
       }
+    },
+    appleWebApp: {
+      title: 'Dvin',
+      statusBarStyle: 'black-translucent',
+      capable: true,
+      startupImage: [
+        '/assets/startup/apple-touch-startup-image-768x1004.png',
+        {
+          url: '/assets/startup/apple-touch-startup-image-1536x2008.png',
+          media: '(device-width: 768px) and (device-height: 1024px)'
+        }
+      ]
     }
   }
 }
