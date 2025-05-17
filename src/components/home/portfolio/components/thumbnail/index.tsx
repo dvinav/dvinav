@@ -1,0 +1,71 @@
+import { Button } from '@mui/material'
+import Grid from '@mui/material/Grid'
+import Typography from '@mui/material/Typography'
+import { styled, useTheme } from '@mui/material/styles'
+import Lottie, { LottieRefCurrentProps } from 'lottie-react'
+import { useEffect, useRef } from 'react'
+
+const Box = styled(Button)(({ theme }) => ({
+  aspectRatio: '16 / 9',
+  borderRadius: 16,
+  border: `3px solid ${theme.palette.secondary.main}80`,
+  boxSizing: 'content-box',
+  transform: theme.direction === 'rtl' ? 'scaleX(-1)' : 'none',
+  cursor: 'pointer',
+  position: 'relative',
+  padding: 12,
+  '& .MuiTouchRipple-root': {
+    transform: theme.direction === 'rtl' ? 'scaleX(-1)' : 'none'
+  }
+}))
+
+interface Props {
+  anim: any
+  label: any
+  mobileOffset: number
+}
+
+const Thumbnail: FC<Props> = ({ anim, label, mobileOffset }) => {
+  const theme = useTheme()
+  const lottieRef = useRef<LottieRefCurrentProps | null>(null)
+  const mainRef = useRef<HTMLElement | null>(null)
+
+  /*
+   * Interactivity doesn't work on lottie-react
+   * There was a loop problem with the lottiefiles interactivity
+   */
+
+  useEffect(() => {
+    mainRef.current = document.getElementById('main')
+    const animContainer = lottieRef?.current?.animationContainerRef.current
+
+    const isMobile = (mainRef?.current?.clientWidth || 0) < theme.breakpoints.values.md
+    // Because useMediaQuery doesn't work for some reason :/
+
+    const handleScroll = () => {
+      const rect = animContainer!.getBoundingClientRect()
+      const scrollY = mainRef.current?.scrollTop!
+      const frame = Math.round(Math.abs((scrollY / rect.top) * 120)) - (isMobile ? mobileOffset : 30)
+      if (frame <= 120) lottieRef.current?.goToAndStop(frame, true)
+    }
+
+    mainRef.current?.addEventListener('scroll', handleScroll)
+
+    return () => {
+      mainRef.current?.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
+
+  return (
+    <Grid size={1} sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+      <Box onClick={() => navigator.vibrate(20)}>
+        <Lottie animationData={anim} loop={false} autoplay={false} lottieRef={lottieRef} style={{ display: 'flex' }} />
+      </Box>
+      <Typography fontSize="1.4rem" textAlign="center">
+        {label}
+      </Typography>
+    </Grid>
+  )
+}
+
+export default Thumbnail

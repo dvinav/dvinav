@@ -1,0 +1,36 @@
+{
+  "NotFound": {
+    "getBackHome": "Go back to Home",
+    "dvinsNotHere": "Dvin's not here!"
+  },
+  "metadata": {
+    "ogTitle": "Dvin Avanesian",
+    "title": "Dvin Avanesian",
+    "description": "Full Stack Developer and Linux Specialist"
+  },
+  "Hero": {
+    "heading": "Hi! I'm Dvin.",
+    "subheading": "Full Stack Developer and Linux Specialist"
+  },
+  "readMore": "Read More",
+  "Header": {
+    "aboutMe": "About Me",
+    "mySkills": "Skills",
+    "contact": "Contact",
+    "work": "Work"
+  },
+  "Intro": {
+    "aboutMe": "About Me",
+    "intro": "I’m Dvin Avanesian, a 21-year-old Full Stack Developer and MBA student with 7 years of hands-on experience building scalable web applications across the entire stack. I also bring strong Linux and DevOps skills to ensure every project runs smoothly and efficiently."
+  },
+  "PortfolioSection": {
+    "whatCanIBuild": "What Can I Build?",
+    "saasDashboard": "SaaS Dashboards",
+    "shoppingWebsite": "Ecommerce Websites",
+    "messenger": "Chat Applications",
+    "blog": "Blog Platforms"
+  },
+  "Contact": {
+    "title": "Where to Find Me"
+  }
+}
