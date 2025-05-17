@@ -6,18 +6,18 @@ const generateMetadata = async (): Promise<Metadata> => {
   const locale = await getLocale()
 
   return {
-    robots: 'index, follow',
-    metadataBase: new URL(`https://${process.env.DOMAIN}`),
+    robots: 'index, follow, noimageindex',
+    metadataBase: new URL(`https://${process.env.DOMAIN}/en/`),
     description: t('description'),
     title: {
       default: t('title'),
-      template: `${t('title')} | %s`
+      template: `%s | ${t('title')}`
     },
     openGraph: {
       type: 'website',
       title: t('ogTitle'),
       description: t('description'),
-      url: process.env.DOMAIN,
+      url: `https://${process.env.DOMAIN}/en/`,
       siteName: t('title'),
       images: `https://${process.env.DOMAIN}/images/og-image_${locale}.jpg`,
       locale: locale.replace('-', '_')
@@ -27,6 +27,13 @@ const generateMetadata = async (): Promise<Metadata> => {
       card: 'summary_large_image',
       title: t('ogTitle'),
       description: t('description')
+    },
+    alternates: {
+      canonical: `https://${process.env.DOMAIN}/en/`,
+      languages: {
+        en: `https://${process.env.DOMAIN}/en/`,
+        fa: `https://${process.env.DOMAIN}/fa/`
+      }
     }
   }
 }
