@@ -13,7 +13,9 @@ const RootLayout: LC = async ({ children }) => {
   return (
     <html lang={locale} dir={dir}>
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
         <link rel="alternate" href={`https://${process.env.DOMAIN}/en/`} hrefLang="x-default" />
         <script
