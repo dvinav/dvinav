@@ -17,6 +17,7 @@ const RootLayout: LC = async ({ children }) => {
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="apple-mobile-web-app-title" content="Dvin" />
+        <link rel="alternate" href={`https://${process.env.DOMAIN}/en/`} hrefLang="x-default" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
