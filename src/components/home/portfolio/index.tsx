@@ -8,7 +8,7 @@ import saasDash from './lottie/saasDash.json'
 import ecommerce from './lottie/ecommerce.json'
 import dynamic from 'next/dynamic'
 
-const Thumbnail = dynamic(() => import('./components/thumbnail'))
+const Thumbnail = dynamic(() => import('./components/thumbnail'), { ssr: false })
 
 const PortfolioSection = () => {
   const t = useTranslations('PortfolioSection')

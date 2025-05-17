@@ -6,7 +6,6 @@ import { styled, useTheme } from '@mui/material/styles'
 import Menu from '@mui/material/Menu'
 import MenuItem from '@mui/material/MenuItem'
 import { HeaderButtonProps } from '../button'
-import useUI from '@/hooks//useUI'
 import { useLocale } from 'next-intl'
 import { fira, vazir } from '@/config/fonts'
 import { useEffect, useState } from 'react'
@@ -28,14 +27,13 @@ const LanguageMenuMenu = styled(Menu, { shouldForwardProp: prop => prop !== 'doe
 
 const LanguageMenu: FC<Props> = ({ onClose, anchor, open, doesOverlap }) => {
   const { push, refresh } = useRouter()
-  const { setState } = useUI()
   const currentLocale = useLocale()
   const theme = useTheme()
   const [mainEl, setMainEl] = useState<HTMLElement | null>(null)
 
   useEffect(() => {
     if (!mainEl) setMainEl(document.getElementById('main'))
-  })
+  }, [mainEl])
 
   return (
     <LanguageMenuMenu anchorEl={anchor} open={open} onClose={onClose} doesOverlap={doesOverlap}>
