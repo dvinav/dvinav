@@ -1,10 +1,4 @@
-import { Inter, Vazirmatn, Fira_Code } from 'next/font/google'
-
-export const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-inter'
-})
+import { Vazirmatn, Fira_Code } from 'next/font/google'
 
 export const vazir = Vazirmatn({
   subsets: ['arabic'],
