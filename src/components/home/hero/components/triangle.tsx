@@ -8,6 +8,7 @@ const Svg = styled('svg')({
   left: 0,
   width: '100%',
   zIndex: 7,
+  transform: 'scaleY(1.01)',
   '& *': {
     fill: '#252120'
   }

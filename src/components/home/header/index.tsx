@@ -18,6 +18,21 @@ const Header = () => {
   const exiting = useUI(s => s.exiting)
   const theme = useTheme()
 
+  const mixColors = (color1: string, color2: string, weight: number) => {
+    const hex = (x: string) => parseInt(x, 16)
+    const r1 = hex(color1.slice(1, 3)),
+      g1 = hex(color1.slice(3, 5)),
+      b1 = hex(color1.slice(5, 7))
+    const r2 = hex(color2.slice(1, 3)),
+      g2 = hex(color2.slice(3, 5)),
+      b2 = hex(color2.slice(5, 7))
+    const w = Math.max(0, Math.min(1, weight))
+    const r = Math.round(r1 + (r2 - r1) * w)
+    const g = Math.round(g1 + (g2 - g1) * w)
+    const b = Math.round(b1 + (b2 - b1) * w)
+    return `#${[r, g, b].map(x => x.toString(16).padStart(2, '0')).join('')}`
+  }
+
   useEffect(() => {
     const headerEl = headerRef.current
     const heroEl = document.getElementById('hero')
@@ -28,16 +43,14 @@ const Header = () => {
       if (!headerEl || !heroEl) return
       const headerBottom = headerEl.getBoundingClientRect().bottom
       const heroBottom = heroEl.getBoundingClientRect().bottom - heights.normal
-      setDoesOverlap(headerBottom > heroBottom)
-      if (headerBottom > heroBottom) {
-        document.body.style.background = theme.palette.primary.main
-        meta?.setAttribute('content', theme.palette.primary.main)
-      } else {
-        meta?.setAttribute('content', theme.palette.secondary.main)
-        document.body.style.background = theme.palette.secondary.main
-      }
+      const overlap = headerBottom - 70 - heroBottom
+      const progress = Math.max(0, Math.min(1, overlap / 80))
+      setDoesOverlap(overlap - 40 > 0)
+      const color = mixColors(theme.palette.secondary.main, theme.palette.primary.main, progress)
+      meta?.setAttribute('content', color)
+      if (headerEl) headerEl.style.background = color
     }
-
+    0
     const handleScroll = () => {
       setHeight(Math.max(70, heights.normal - (mainEl?.scrollTop || 0)))
       checkOverlap()
@@ -53,8 +66,12 @@ const Header = () => {
     }
   })
 
+  useEffect(() => {
+    if (headerRef?.current) headerRef.current.style.color = doesOverlap ? theme.palette.secondary.main : theme.palette.primary.main
+  }, [doesOverlap])
+
   return (
-    <HeaderContainer ref={headerRef} height={height} doesOverlap={doesOverlap} navOpen={navOpen} sx={{ opacity: exiting ? 0 : 1 }}>
+    <HeaderContainer ref={headerRef} height={height} navOpen={navOpen} sx={{ opacity: exiting ? 0 : 1 }}>
       <Box
         sx={{
           height: { xs: navOpen ? heights.linksNormal : 0, md: 'initial' },

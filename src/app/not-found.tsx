@@ -23,7 +23,7 @@ const NotFound = () => {
     textDecoration: 'none',
     color: 'inherit',
     display: 'inline-flex',
-    flexDirection: theme.direction === 'rtl' ? 'row-reverse' : 'row',
+    flexDirection: theme.direction === 'rtl' ? 'row' : 'row-reverse',
     alignItems: 'center',
     gap: '0.7rem',
     fontSize: '1.5rem',
@@ -54,7 +54,8 @@ const NotFound = () => {
         background: theme.palette.secondary.main,
         '& > *': {
           opacity: exiting ? 0 : 1,
-          transition: 'opacity 300ms'
+          transition: 'opacity 300ms',
+          color: `${theme.palette.text.primary}!important`
         }
       }}
     >
@@ -69,15 +70,14 @@ const NotFound = () => {
           '&::after': {
             position: 'absolute',
             content: '""',
-            bottom: '-10px',
-            left: '20%',
+            bottom: '-15px',
             width: '60%',
             height: '3px',
             borderRadius: 10,
             backgroundColor: 'currentColor',
             transform: 'scaleX(0)',
             transformOrigin: 'center',
-            transition: 'transform 300ms cubic-bezier(.17,.67,.24,.99)'
+            transition: 'transform 500ms cubic-bezier(.17,.67,.24,.99)'
           },
           '&:hover::after': {
             transform: 'scaleX(1)',
