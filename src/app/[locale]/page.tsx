@@ -1,6 +1,8 @@
 import { Header, Hero, Intro, Content, PortfolioSection, Contact } from '@/components/home'
 import { themeColor } from '@/config/theme'
 
+export const generateStaticParams = () => [{ locale: 'en' }, { locale: 'fa' }]
+
 export const viewport = {
   themeColor,
   width: 'device-width',
