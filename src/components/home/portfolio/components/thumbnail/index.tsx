@@ -5,8 +5,10 @@ import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
 import { styled, useTheme } from '@mui/material/styles'
 import type { LottieRefCurrentProps } from 'lottie-react'
-import Lottie from 'lottie-react'
+import dynamic from 'next/dynamic'
 import { useEffect, useRef } from 'react'
+
+const Lottie = dynamic(() => import('lottie-react'), { ssr: false })
 
 const Box = styled(Button)(({ theme }) => ({
   aspectRatio: '16 / 9',
