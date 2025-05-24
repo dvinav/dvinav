@@ -8,7 +8,7 @@
     "heading": "درود! دِوین هستم.",
     "subheading": "برنامه‌نویس فول استک و متخصص لینوکس"
   },
-  "readMore": "بیشتر بخوانید",
+  "ReadMore": "بیشتر بخوانید",
   "Header": {
     "aboutMe": "درباره من",
     "mySkills": "مهارت‌ها",
@@ -28,5 +28,23 @@
   },
   "Contact": {
     "title": "با من در ارتباط باشید"
+  },
+  "WhatMatters": {
+    "title": "چه چیزهایی برام اهمیت دارن؟",
+    "uiDetails": "جزئیات ظاهری",
+    "performance": "کارایی",
+    "security": "امنیت",
+    "accessibility": "دسترس‌پذیری",
+    "minimalism": "سادگی ظاهری",
+    "simplicity": "سادگی"
+  },
+  "Languages": {
+    "title": "چه زبان‌هایی بلدم؟"
+  },
+  "Frameworks": {
+    "title": "با چه فریم‌ورک‌هایی کار کردم؟"
+  },
+  "WhatElse": {
+    "title": "دیگه چی؟"
   }
 }
