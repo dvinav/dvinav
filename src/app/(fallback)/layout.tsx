@@ -1,5 +1,3 @@
-import AppLayout from '@/components/layout'
-
 const RootLayout: LC = async ({ children }) => {
   return (
     <html lang="en">

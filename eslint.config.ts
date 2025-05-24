@@ -13,7 +13,9 @@ const eslintConfig = [
       '@typescript-eslint/no-empty-object-type': 'off',
       '@typescript-eslint/no-unused-expressions': 'off',
       '@next/next/no-sync-scripts': 'off',
-      '@typescript-eslint/no-extra-non-null-assertion': 'off'
+      '@typescript-eslint/no-extra-non-null-assertion': 'off',
+      'react-hooks/exhaustive-deps': 'off',
+      'react/no-unescaped-entities': 'off'
     }
   }
 ]
