@@ -1,15 +1,26 @@
 import { NextIntlClientProvider } from 'next-intl'
+import { setRequestLocale } from 'next-intl/server'
 import AppLayout from '@/components/layout'
 import { dirs } from '@/config/locale'
 import jsonLd from '@/config/jsonld'
-
-export { default as generateMetadata } from '@/config/metadata'
+import getMetadata from '@/config/metadata'
 
 export { generateStaticParams } from './page'
 
-const RootLayout: LC<{ params: Promise<{ locale: string }> }> = async ({ children, params }) => {
+interface Params {
+  params: Promise<{ locale: string }>
+}
+
+export const generateMetadata = async ({ params }: Params) => {
+  const { locale } = await params
+  return getMetadata(locale as 'en' | 'fa')
+}
+
+const RootLayout: LC<Params> = async ({ children, params }) => {
   const { locale } = await params
   const dir = dirs[locale]
+
+  setRequestLocale(locale)
 
   return (
     <html lang={locale} dir={dir}>

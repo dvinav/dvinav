@@ -5,7 +5,10 @@ import type { NextConfig } from 'next'
 import bundleAnalyzer from '@next/bundle-analyzer'
 
 const nextConfig: NextConfig = {
-  output: 'export'
+  output: 'export',
+  images: {
+    unoptimized: true
+  }
 }
 
 const withBundleAnalyzer = bundleAnalyzer({
