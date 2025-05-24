@@ -11,6 +11,9 @@ const Intro = () => {
 
   return (
     <Stack spacing={4}>
+      <Typography component="h2" fontSize={{ xs: '1.6rem', md: '2rem' }} textAlign="center">
+        {t('aboutMe')}
+      </Typography>
       <Typography
         component="p"
         fontSize={{ xs: theme.direction === 'rtl' ? '1.2rem' : '1.1rem', md: theme.direction === 'rtl' ? '1.8rem' : '1.5rem' }}

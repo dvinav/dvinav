@@ -1,7 +1,5 @@
-
 'use client'
 
-import { Button } from '@mui/material'
 import Grid from '@mui/material/Grid'
 import Typography from '@mui/material/Typography'
 import { styled, useTheme } from '@mui/material/styles'
@@ -9,18 +7,14 @@ import type { LottieRefCurrentProps } from 'lottie-react'
 import Lottie from 'lottie-react'
 import { useEffect, useRef } from 'react'
 
-const Box = styled(Button)(({ theme }) => ({
+const Box = styled('div')(({ theme }) => ({
   aspectRatio: '16 / 9',
-  borderRadius: 16,
+  borderRadius: 22,
   border: `3px solid ${theme.palette.secondary.main}80`,
   boxSizing: 'content-box',
   transform: theme.direction === 'rtl' ? 'scaleX(-1)' : 'none',
-  cursor: 'pointer',
   position: 'relative',
-  padding: 12,
-  '& .MuiTouchRipple-root': {
-    transform: theme.direction === 'rtl' ? 'scaleX(-1)' : 'none'
-  }
+  padding: 12
 }))
 
 interface Props {
