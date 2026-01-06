@@ -2,7 +2,6 @@ import { NextIntlClientProvider } from 'next-intl'
 import { setRequestLocale } from 'next-intl/server'
 import AppLayout from '@/components/layout'
 import { dirs } from '@/config/locale'
-import jsonLd from '@/config/jsonld'
 import getMetadata from '@/config/metadata'
 
 export { generateStaticParams } from './page'
@@ -30,13 +29,6 @@ const RootLayout: LC<Params> = async ({ children, params }) => {
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="manifest" href={`/manifest_${locale}.json`} />
         <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
-        <link rel="alternate" href={`https://dvinav.github.io/en/`} hrefLang="x-default" />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(jsonLd)
-          }}
-        />
       </head>
       <body tabIndex={-1}>
         <NextIntlClientProvider>
