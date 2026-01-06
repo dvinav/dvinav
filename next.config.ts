@@ -1,12 +1,7 @@
 import createNextIntlPlugin from 'next-intl/plugin'
 import type { NextConfig } from 'next'
 
-const nextConfig: NextConfig = {
-  output: 'export',
-  images: {
-    unoptimized: true
-  }
-}
+const nextConfig: NextConfig = {}
 
 const withIntl = createNextIntlPlugin()
 
